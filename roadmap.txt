@@ -1,7 +1,7 @@
 SPOTIFY CLONE ROADMAP ▢/▣
 
-▢ Project structure
-▢ Theme of application
+▣ Project structure
+▣ Theme of application
 ▢ Assets & Fonts folders / Defining in pubspec
 ▢ Splash page
 ▢ Get a Started page
