@@ -1,0 +1,13 @@
+SPOTIFY CLONE ROADMAP ▢/▣
+
+▢ Project structure
+▢ Theme of application
+▢ Assets & Fonts folders / Defining in pubspec
+▢ Splash page
+▢ Get a Started page
+▢ Choose Mode page
+▢ Choose mode logic
+▢ Login or Signup page
+▢ Login page
+▢ Signup page
+▢ Firebase Setup
