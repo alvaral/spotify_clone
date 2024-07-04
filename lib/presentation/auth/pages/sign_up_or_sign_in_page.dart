@@ -6,8 +6,8 @@ import 'package:spotify_clone_flutter/common/widgets/button/basic_app_button.dar
 import 'package:spotify_clone_flutter/core/configs/assets/app_images.dart';
 import 'package:spotify_clone_flutter/core/configs/assets/app_vectors.dart';
 import 'package:spotify_clone_flutter/core/configs/theme/app_colors.dart';
-import 'package:spotify_clone_flutter/presentation/auth/pages/signin_page.dart';
-import 'package:spotify_clone_flutter/presentation/auth/pages/signup_page.dart';
+import 'package:spotify_clone_flutter/presentation/auth/pages/sign_in_page.dart';
+import 'package:spotify_clone_flutter/presentation/auth/pages/sign_up_page.dart';
 
 class SignupOrSigninPage extends StatelessWidget {
   const SignupOrSigninPage({super.key});
@@ -69,8 +69,7 @@ class SignupOrSigninPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (BuildContext context) =>
-                                    const SignUpPage(),
+                                builder: (BuildContext context) => SignUpPage(),
                               ),
                             );
                           },
@@ -99,8 +98,7 @@ class SignupOrSigninPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (BuildContext context) =>
-                                    const SignInPage(),
+                                builder: (BuildContext context) => SignInPage(),
                               ),
                             );
                           },
