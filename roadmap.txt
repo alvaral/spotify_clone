@@ -18,6 +18,10 @@ SPOTIFY CLONE ROADMAP ▢/▣
 ▣ Service Data Layer
 ▣ Using Auth Use Cases
 
-▢ Upload Songs To FireStorage
-▢ Upload Song Covers To FireStorage
-▢ Create Cloud Firestorage Collections (songs, users...)
+▣ Upload Songs To FireStorage
+▣ Upload Song Covers To FireStorage
+▣ Create Cloud Firestorage Collections (songs, users...)
+
+▢ Home Page (Tabs, Songs...)
+▢ Music Player PageUser Profile Page
+▢ User Profile Page (Favorite songs)
