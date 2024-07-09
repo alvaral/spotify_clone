@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:spotify_clone_flutter/common/helpers/is_dark_mode.dart';
 import 'package:spotify_clone_flutter/common/widgets/appbar/basic_app_bar.dart';
+import 'package:spotify_clone_flutter/common/widgets/favorite_button/favorite_button.dart';
 import 'package:spotify_clone_flutter/core/configs/constants/app_urls.dart';
 import 'package:spotify_clone_flutter/core/configs/theme/app_colors.dart';
 import 'package:spotify_clone_flutter/domain/entities/song/song_entity.dart';
@@ -113,13 +114,7 @@ class SongPlayerPage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
             const SizedBox(width: 20),
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.favorite_outline,
-                color: AppColors.darkGrey,
-              ),
-            ),
+            FavoriteButton(songEntity: songEntity),
           ],
         ),
       ],

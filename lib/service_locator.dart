@@ -7,8 +7,10 @@ import 'package:spotify_clone_flutter/domain/repository/auth/auth_repository.dar
 import 'package:spotify_clone_flutter/domain/repository/song/song_repository.dart';
 import 'package:spotify_clone_flutter/domain/usecases/auth/sign_in_use_case.dart';
 import 'package:spotify_clone_flutter/domain/usecases/auth/signup_use_case.dart';
+import 'package:spotify_clone_flutter/domain/usecases/song/add_or_remove_favorite_song_use_case.dart';
 import 'package:spotify_clone_flutter/domain/usecases/song/get_news_songs_use_case.dart';
 import 'package:spotify_clone_flutter/domain/usecases/song/get_play_list_use_case.dart';
+import 'package:spotify_clone_flutter/domain/usecases/song/is_favorite_song_use_case.dart';
 
 final sl = GetIt.instance;
 
@@ -45,5 +47,13 @@ Future<void> initializeDependencies() async {
 
   sl.registerSingleton<GetPlayListUseCase>(
     GetPlayListUseCase(),
+  );
+
+  sl.registerSingleton<AddOrRemoveFavoriteSongUseCase>(
+    AddOrRemoveFavoriteSongUseCase(),
+  );
+
+  sl.registerSingleton<IsFavoriteSongUseCase>(
+    IsFavoriteSongUseCase(),
   );
 }
