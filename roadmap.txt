@@ -22,6 +22,15 @@ SPOTIFY CLONE ROADMAP ▢/▣
 ▣ Upload Song Covers To FireStorage
 ▣ Create Cloud Firestorage Collections (songs, users...)
 
-▢ Home Page (Tabs, Songs...)
-▢ Music Player PageUser Profile Page
+▣ Home Page (Tabs, Songs...)
+▣ Music Player PageUser Profile Page
 ▢ User Profile Page (Favorite songs)
+
+
+
+
+IMPROVEMENTS
+- use url variables in database for songs
+- improve db sorting songs by artists/playlists...
+- use shimmer instead of loading circle
+- let the song play in the background  
