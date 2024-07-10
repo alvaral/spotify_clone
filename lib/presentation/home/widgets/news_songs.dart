@@ -66,12 +66,12 @@ class NewsSongs extends StatelessWidget {
                         fit: BoxFit.cover,
                         image: NetworkImage(
                           // ignore: prefer_interpolation_to_compose_strings
-                          AppUrls.coverFirestorage +
+                          AppURLs.coverFirestorage +
                               songs[index].artist +
                               ' - ' +
                               songs[index].title +
                               ' - cover.jpg?' +
-                              AppUrls.mediaAlt,
+                              AppURLs.mediaAlt,
                         ),
                       ),
                     ),

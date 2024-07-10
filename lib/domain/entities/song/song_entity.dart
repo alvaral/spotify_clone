@@ -9,11 +9,10 @@ class SongEntity {
   final String songId;
 
   SongEntity(
-    this.title,
-    this.artist,
-    this.duration,
-    this.releaseDate,
-    this.isFavorite,
-    this.songId,
-  );
+      {required this.title,
+      required this.artist,
+      required this.duration,
+      required this.releaseDate,
+      required this.isFavorite,
+      required this.songId});
 }

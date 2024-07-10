@@ -27,10 +27,16 @@ SPOTIFY CLONE ROADMAP ▢/▣
 ▢ User Profile Page (Favorite songs)
 
 
-
-
 IMPROVEMENTS
-- use url variables in database for songs
-- improve db sorting songs by artists/playlists...
+- use GoRouter instead of Navigator
 - use shimmer instead of loading circle
-- let the song play in the background  
+- automatically play song when its selected
+- use url variables in database for songs
+- improve db structure (songs by artists/playlists...)
+- let the song play in the background 
+- next/previous song, aleatory mode
+- move song position from slider
+- Add dashboard 
+
+ERRORS
+- FIX ERROR update favorite song state in home

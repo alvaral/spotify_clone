@@ -16,6 +16,7 @@ sealed class SongFirebaseService {
   Future<Either> getPlayList();
   Future<Either> addOrRemoveFavoriteSong(String songId);
   Future<bool> isFavoriteSong(String songId);
+  Future<Either> getUserFavoriteSongs();
 }
 
 class SongFirebaseServiceImpl extends SongFirebaseService {
@@ -105,7 +106,6 @@ class SongFirebaseServiceImpl extends SongFirebaseService {
           'addedDate': Timestamp.now(),
         });
       }
-      log('song_firebase_service: isFavorite $isFavorite');
       return Right(isFavorite);
     } catch (e) {
       return const Left('An error occurred');
@@ -128,7 +128,10 @@ class SongFirebaseServiceImpl extends SongFirebaseService {
           .collection('Users')
           .doc(uId)
           .collection('favorites')
-          .where('songId', isEqualTo: songId)
+          .where(
+            'songId',
+            isEqualTo: songId,
+          )
           .get();
 
       if (favoriteSongs.docs.isNotEmpty) {
@@ -137,6 +140,42 @@ class SongFirebaseServiceImpl extends SongFirebaseService {
       return isFavorite;
     } catch (e) {
       return false;
+    }
+  }
+
+  @override
+  Future<Either> getUserFavoriteSongs() async {
+    try {
+      final FirebaseAuth firebaseAuth = FirebaseAuth.instance;
+      final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
+
+      List<SongEntity> favoriteSongs = [];
+
+      var user = firebaseAuth.currentUser;
+
+      String uId = user!.uid;
+
+      QuerySnapshot favoriteSongsQuerySnapshot = await firebaseFirestore
+          .collection('Users')
+          .doc(uId)
+          .collection('favorites')
+          .get();
+
+      for (var element in favoriteSongsQuerySnapshot.docs) {
+        String songId = element['songId'];
+
+        var song =
+            await firebaseFirestore.collection('songs').doc(songId).get();
+
+        SongModel songModel = SongModel.fromJson(song.data()!);
+        songModel.isFavorite = true;
+        songModel.songId = songId;
+        favoriteSongs.add(songModel.toEntity());
+      }
+      return Right(favoriteSongs);
+    } catch (e) {
+      log('song_firebase_service: $e');
+      return const Left('An error occurred.');
     }
   }
 }

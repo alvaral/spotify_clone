@@ -7,6 +7,7 @@ import 'package:spotify_clone_flutter/core/configs/assets/app_vectors.dart';
 import 'package:spotify_clone_flutter/core/configs/theme/app_colors.dart';
 import 'package:spotify_clone_flutter/presentation/home/widgets/news_songs.dart';
 import 'package:spotify_clone_flutter/presentation/home/widgets/play_list.dart';
+import 'package:spotify_clone_flutter/presentation/profile/profile_page.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -34,6 +35,16 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin {
           height: 40,
           width: 40,
         ),
+        action: IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) => const ProfilePage(),
+                ),
+              );
+            },
+            icon: const Icon(Icons.person)),
       ),
       body: SingleChildScrollView(
         child: Column(
