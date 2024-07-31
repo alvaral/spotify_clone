@@ -3,9 +3,11 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:spotify_clone_flutter/common/helpers/is_dark_mode.dart';
 import 'package:spotify_clone_flutter/common/widgets/button/basic_app_button.dart';
 import 'package:spotify_clone_flutter/core/configs/assets/app_images.dart';
 import 'package:spotify_clone_flutter/core/configs/assets/app_vectors.dart';
+import 'package:spotify_clone_flutter/core/configs/theme/app_colors.dart';
 import 'package:spotify_clone_flutter/presentation/auth/pages/sign_up_or_sign_in_page.dart';
 import 'package:spotify_clone_flutter/presentation/choose_mode/bloc/theme_cubit.dart';
 
@@ -69,8 +71,9 @@ class ChooseModePage extends StatelessWidget {
                                 width: 80,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color:
-                                      const Color(0xff30393C).withOpacity(0.5),
+                                  color: !context.isDarkMode
+                                      ? const Color(0xff30393C).withOpacity(0.5)
+                                      : AppColors.primary.withOpacity(0.5),
                                 ),
                                 child: SvgPicture.asset(
                                   AppVectors.moon,
@@ -106,8 +109,9 @@ class ChooseModePage extends StatelessWidget {
                                 width: 80,
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
-                                  color:
-                                      const Color(0xff30393C).withOpacity(0.5),
+                                  color: context.isDarkMode
+                                      ? const Color(0xff30393C).withOpacity(0.5)
+                                      : AppColors.primary.withOpacity(0.5),
                                 ),
                                 child: SvgPicture.asset(
                                   AppVectors.sun,
