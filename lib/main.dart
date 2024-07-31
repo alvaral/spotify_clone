@@ -5,9 +5,9 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:spotify_clone_flutter/core/configs/theme/app_theme.dart';
+import 'package:spotify_clone_flutter/core/routing/app_router.dart';
 import 'package:spotify_clone_flutter/firebase_options.dart';
 import 'package:spotify_clone_flutter/presentation/choose_mode/bloc/theme_cubit.dart';
-import 'package:spotify_clone_flutter/presentation/splash/pages/splash_page.dart';
 import 'package:spotify_clone_flutter/service_locator.dart';
 
 Future<void> main() async {
@@ -23,11 +23,13 @@ Future<void> main() async {
 
   await initializeDependencies();
 
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
+
+  final _appRouterConfig = AppRouterConfig();
 
   @override
   Widget build(BuildContext context) {
@@ -38,12 +40,12 @@ class MyApp extends StatelessWidget {
         )
       ],
       child: BlocBuilder<ThemeCubit, ThemeMode>(
-        builder: (BuildContext context, ThemeMode mode) => MaterialApp(
+        builder: (BuildContext context, ThemeMode mode) => MaterialApp.router(
           title: 'Spotify Clone Flutter',
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: mode,
-          home: const SplashPage(),
+          routerConfig: _appRouterConfig.router,
         ),
       ),
     );

@@ -2,13 +2,14 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:spotify_clone_flutter/common/helpers/is_dark_mode.dart';
 import 'package:spotify_clone_flutter/common/widgets/favorite_button/favorite_button.dart';
 import 'package:spotify_clone_flutter/core/configs/theme/app_colors.dart';
+import 'package:spotify_clone_flutter/core/routing/app_router.dart';
 import 'package:spotify_clone_flutter/domain/entities/song/song_entity.dart';
 import 'package:spotify_clone_flutter/presentation/home/bloc/play_list_cubit.dart';
 import 'package:spotify_clone_flutter/presentation/home/bloc/play_list_state.dart';
-import 'package:spotify_clone_flutter/presentation/song_player/pages/song_player_page.dart';
 
 class PlayList extends StatelessWidget {
   const PlayList({super.key});
@@ -53,7 +54,7 @@ class PlayList extends StatelessWidget {
                       ),
                     ],
                   ),
-                  SizedBox(height: 20),
+                  const SizedBox(height: 20),
                   _songs(state.songs),
                 ],
               ),
@@ -70,13 +71,8 @@ class PlayList extends StatelessWidget {
     return ListView.separated(
       shrinkWrap: true,
       itemBuilder: (context, index) => GestureDetector(
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (BuildContext context) =>
-                SongPlayerPage(songEntity: songs[index]),
-          ),
-        ),
+        onTap: () =>
+            context.pushNamed(AppRoute.player.name, extra: songs[index]),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [

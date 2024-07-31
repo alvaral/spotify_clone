@@ -12,11 +12,13 @@ class SongPlayerCubit extends Cubit<SongPlayerState> {
 
   SongPlayerCubit() : super(SongPlayerLoading()) {
     audioPlayer.positionStream.listen((positon) {
-      songPosition = positon;
-      updateSongPlayer();
+      if (!isClosed) {
+        songPosition = positon;
+        updateSongPlayer();
+      }
     });
     audioPlayer.durationStream.listen((duration) {
-      if (duration != null) {
+      if (duration != null && !isClosed) {
         songDuration = duration;
         updateSongPlayer();
       }

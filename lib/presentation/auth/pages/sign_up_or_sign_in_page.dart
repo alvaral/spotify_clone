@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:spotify_clone_flutter/common/helpers/is_dark_mode.dart';
 import 'package:spotify_clone_flutter/common/widgets/appbar/basic_app_bar.dart';
 import 'package:spotify_clone_flutter/common/widgets/button/basic_app_button.dart';
 import 'package:spotify_clone_flutter/core/configs/assets/app_images.dart';
 import 'package:spotify_clone_flutter/core/configs/assets/app_vectors.dart';
 import 'package:spotify_clone_flutter/core/configs/theme/app_colors.dart';
-import 'package:spotify_clone_flutter/presentation/auth/pages/sign_in_page.dart';
-import 'package:spotify_clone_flutter/presentation/auth/pages/sign_up_page.dart';
+import 'package:spotify_clone_flutter/core/routing/app_router.dart';
 
 class SignupOrSigninPage extends StatelessWidget {
   const SignupOrSigninPage({super.key});
@@ -66,12 +66,7 @@ class SignupOrSigninPage extends StatelessWidget {
                         child: BasicAppButton(
                           title: 'Register',
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (BuildContext context) => SignUpPage(),
-                              ),
-                            );
+                            context.goNamed(AppRoute.register.name);
                           },
                         ),
                       ),
@@ -95,12 +90,7 @@ class SignupOrSigninPage extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (BuildContext context) => SignInPage(),
-                              ),
-                            );
+                            context.goNamed(AppRoute.signIn.name);
                           },
                         ),
                       ),

@@ -2,13 +2,14 @@ import 'dart:developer';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:spotify_clone_flutter/common/helpers/is_dark_mode.dart';
 import 'package:spotify_clone_flutter/core/configs/constants/app_urls.dart';
 import 'package:spotify_clone_flutter/core/configs/theme/app_colors.dart';
+import 'package:spotify_clone_flutter/core/routing/app_router.dart';
 import 'package:spotify_clone_flutter/domain/entities/song/song_entity.dart';
 import 'package:spotify_clone_flutter/presentation/home/bloc/news_songs_cubit.dart';
 import 'package:spotify_clone_flutter/presentation/home/bloc/news_songs_state.dart';
-import 'package:spotify_clone_flutter/presentation/song_player/pages/song_player_page.dart';
 
 class NewsSongs extends StatelessWidget {
   const NewsSongs({super.key});
@@ -45,13 +46,7 @@ class NewsSongs extends StatelessWidget {
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (BuildContext context) =>
-                    SongPlayerPage(songEntity: songs[index]),
-              ),
-            );
+            context.pushNamed(AppRoute.player.name, extra: songs[index]);
           },
           child: SizedBox(
             width: 160,

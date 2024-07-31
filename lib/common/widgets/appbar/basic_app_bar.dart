@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:spotify_clone_flutter/common/helpers/is_dark_mode.dart';
 
 class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -26,7 +27,7 @@ class BasicAppBar extends StatelessWidget implements PreferredSizeWidget {
           ? Container()
           : IconButton(
               onPressed: () {
-                Navigator.pop(context);
+                context.pop();
               },
               icon: Container(
                 height: 50,

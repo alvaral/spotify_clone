@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:spotify_clone_flutter/common/widgets/appbar/basic_app_bar.dart';
 import 'package:spotify_clone_flutter/common/widgets/button/basic_app_button.dart';
 import 'package:spotify_clone_flutter/core/configs/assets/app_vectors.dart';
+import 'package:spotify_clone_flutter/core/routing/app_router.dart';
 import 'package:spotify_clone_flutter/data/models/auth/sign_in_user_req.dart';
 import 'package:spotify_clone_flutter/domain/usecases/auth/sign_in_use_case.dart';
-import 'package:spotify_clone_flutter/presentation/auth/pages/sign_up_page.dart';
-import 'package:spotify_clone_flutter/presentation/home/pages/home_page.dart';
 import 'package:spotify_clone_flutter/service_locator.dart';
 
 class SignInPage extends StatelessWidget {
@@ -53,13 +53,7 @@ class SignInPage extends StatelessWidget {
                         ScaffoldMessenger.of(context).showSnackBar(snackBar);
                       },
                       (r) {
-                        Navigator.pushAndRemoveUntil(
-                            context,
-                            MaterialPageRoute(
-                              builder: (BuildContext context) =>
-                                  const HomePage(),
-                            ),
-                            (route) => false);
+                        context.pushReplacement('/${AppRoute.home.name}');
                       },
                     );
                   },
@@ -115,12 +109,7 @@ class SignInPage extends StatelessWidget {
           ),
           TextButton(
             onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (BuildContext context) => SignUpPage(),
-                ),
-              );
+              context.goNamed(AppRoute.register.name);
             },
             child: const Text(
               'Register now',

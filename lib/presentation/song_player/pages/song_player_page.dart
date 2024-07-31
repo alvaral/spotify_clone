@@ -1,10 +1,7 @@
 // ignore_for_file: prefer_interpolation_to_compose_strings
 
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:spotify_clone_flutter/common/helpers/is_dark_mode.dart';
 import 'package:spotify_clone_flutter/common/widgets/appbar/basic_app_bar.dart';
 import 'package:spotify_clone_flutter/common/widgets/favorite_button/favorite_button.dart';
 import 'package:spotify_clone_flutter/core/configs/constants/app_urls.dart';
@@ -188,4 +185,3 @@ class SongPlayerPage extends StatelessWidget {
     return '${minutes.toString().padLeft(2, '0')}:${seconds.toString().padLeft(2, '0')}';
   }
 }
-

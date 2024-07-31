@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 import 'package:spotify_clone_flutter/common/helpers/is_dark_mode.dart';
 import 'package:spotify_clone_flutter/common/widgets/appbar/basic_app_bar.dart';
 import 'package:spotify_clone_flutter/common/widgets/favorite_button/favorite_button.dart';
 import 'package:spotify_clone_flutter/core/configs/constants/app_urls.dart';
+import 'package:spotify_clone_flutter/core/routing/app_router.dart';
 import 'package:spotify_clone_flutter/presentation/profile/bloc/favorite_songs/favorite_songs_cubit.dart';
 import 'package:spotify_clone_flutter/presentation/profile/bloc/favorite_songs/favorite_songs_state.dart';
 import 'package:spotify_clone_flutter/presentation/profile/bloc/profile_info/profile_info_cubit.dart';
 import 'package:spotify_clone_flutter/presentation/profile/bloc/profile_info/profile_info_state.dart';
-import 'package:spotify_clone_flutter/presentation/song_player/pages/song_player_page.dart';
 
 class ProfilePage extends StatelessWidget {
   const ProfilePage({super.key});
@@ -120,13 +121,10 @@ class ProfilePage extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (BuildContext context) =>
-                                        SongPlayerPage(
-                                            songEntity:
-                                                state.favoriteSongs[index])));
+                            context.goNamed(
+                              AppRoute.player.name,
+                              extra: state.favoriteSongs[index],
+                            );
                           },
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
