@@ -17,6 +17,10 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // TODO -> change params when its dev mode
+    _email.text = 'test@gmail.com';
+    _password.text = "test123";
+
     return Scaffold(
       appBar: BasicAppBar(
         title: SvgPicture.asset(

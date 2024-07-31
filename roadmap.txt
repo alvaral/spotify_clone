@@ -26,20 +26,22 @@ SPOTIFY CLONE ROADMAP ▢/▣
 ▣ Music Player PageUser Profile Page
 ▣ User Profile Page (Favorite songs)
 
-▢ use GoRouter instead of Navigator
+▣ use GoRouter instead of Navigator
 ▢ Dashboard Home/Search/Library
 
 
 
 IMPROVEMENTS
-- use GoRouter instead of Navigator
 - use shimmer instead of loading circle
-- automatically play song when its selected
+
 - use url variables in database for songs
 - improve db structure (songs by artists/playlists...)
+
+- automatically play song when its selected
 - let the song play in the background 
 - next/previous song, aleatory mode
 - move song position from slider
+
 - Add dashboard 
 
 NEW FEATURES
