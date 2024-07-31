@@ -7,6 +7,13 @@ import 'package:spotify_clone_flutter/service_locator.dart';
 
 class PlayListCubit extends Cubit<PlayListState> {
   PlayListCubit() : super(PlayListLoading());
+  bool _isClosed = false;
+
+  @override
+  Future<void> close() {
+    _isClosed = true;
+    return super.close();
+  }
 
   Future<void> getPlayList() async {
     var returnedSongs = await sl<GetPlayListUseCase>().call();
@@ -14,9 +21,15 @@ class PlayListCubit extends Cubit<PlayListState> {
     returnedSongs.fold(
       (l) {
         log('play_list_cubit $l');
-        emit(PlayListLoadFailure());
+        if (!_isClosed) {
+          emit(PlayListLoadFailure());
+        }
       },
-      (data) => emit(PlayListLoaded(songs: data)),
+      (data) {
+        if (!_isClosed) {
+          emit(PlayListLoaded(songs: data));
+        }
+      },
     );
   }
 }

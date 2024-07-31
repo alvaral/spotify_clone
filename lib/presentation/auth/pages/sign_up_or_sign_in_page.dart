@@ -66,7 +66,7 @@ class SignupOrSigninPage extends StatelessWidget {
                         child: BasicAppButton(
                           title: 'Register',
                           onPressed: () {
-                            context.goNamed(AppRoute.register.name);
+                            context.pushNamed(AppRoute.register.name);
                           },
                         ),
                       ),
@@ -90,7 +90,7 @@ class SignupOrSigninPage extends StatelessWidget {
                             ),
                           ),
                           onPressed: () {
-                            context.goNamed(AppRoute.signIn.name);
+                            context.pushNamed(AppRoute.signIn.name);
                           },
                         ),
                       ),

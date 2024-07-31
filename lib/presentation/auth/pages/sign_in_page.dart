@@ -57,7 +57,7 @@ class SignInPage extends StatelessWidget {
                         ScaffoldMessenger.of(context).showSnackBar(snackBar);
                       },
                       (r) {
-                        context.pushReplacement('/${AppRoute.home.name}');
+                        context.pushReplacement('/${AppRoute.dashboard.name}');
                       },
                     );
                   },

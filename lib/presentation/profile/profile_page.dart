@@ -121,7 +121,7 @@ class ProfilePage extends StatelessWidget {
                       itemBuilder: (context, index) {
                         return GestureDetector(
                           onTap: () {
-                            context.goNamed(
+                            context.pushNamed(
                               AppRoute.player.name,
                               extra: state.favoriteSongs[index],
                             );

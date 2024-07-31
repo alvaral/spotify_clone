@@ -4,6 +4,7 @@ import 'package:spotify_clone_flutter/presentation/auth/pages/sign_in_page.dart'
 import 'package:spotify_clone_flutter/presentation/auth/pages/sign_up_or_sign_in_page.dart';
 import 'package:spotify_clone_flutter/presentation/auth/pages/sign_up_page.dart';
 import 'package:spotify_clone_flutter/presentation/choose_mode/pages/choose_mode_page.dart';
+import 'package:spotify_clone_flutter/presentation/dashboard/pages/dashboard.dart';
 import 'package:spotify_clone_flutter/presentation/home/pages/home_page.dart';
 import 'package:spotify_clone_flutter/presentation/intro/pages/get_started_page.dart';
 import 'package:spotify_clone_flutter/presentation/profile/profile_page.dart';
@@ -17,6 +18,7 @@ enum AppRoute {
   registerOrSignIn,
   register,
   signIn,
+  dashboard,
   home,
   profile,
   player,
@@ -60,6 +62,11 @@ class AppRouterConfig {
       path: '/signIn',
       name: AppRoute.signIn.name,
       builder: (context, state) => SignInPage(),
+    ),
+    GoRoute(
+      path: '/dashboard',
+      name: AppRoute.dashboard.name,
+      builder: (context, state) => const DashboardPage(),
     ),
     GoRoute(
       path: '/home',

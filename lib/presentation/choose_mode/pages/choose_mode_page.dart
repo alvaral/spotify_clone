@@ -137,7 +137,7 @@ class ChooseModePage extends StatelessWidget {
                 const SizedBox(height: 50),
                 BasicAppButton(
                     onPressed: () {
-                      context.goNamed(AppRoute.registerOrSignIn.name);
+                      context.pushNamed(AppRoute.registerOrSignIn.name);
                     },
                     title: 'Continue')
               ],
