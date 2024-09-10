@@ -56,9 +56,9 @@ class DashboardPage extends StatelessWidget {
       case DashboardState.home:
         return const HomePage();
       case DashboardState.search:
-        return SearchPage();
+        return const SearchPage();
       case DashboardState.library:
-        return YourLibraryPage();
+        return const YourLibraryPage();
       default:
         return const HomePage();
     }

@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
 
-class HomePage1 extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Center(child: Text('Home Page'));
-  }
-}
-
 class SearchPage extends StatelessWidget {
+  const SearchPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Search Page'));
+    return const Center(child: Text('Search Page'));
   }
 }
 
 class YourLibraryPage extends StatelessWidget {
+  const YourLibraryPage({super.key});
+
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Your Library Page'));
+    return const Center(child: Text('Your Library Page'));
   }
 }
