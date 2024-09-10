@@ -7,7 +7,7 @@ import 'package:spotify_clone_flutter/data/models/auth/sign_in_user_req.dart';
 import 'package:spotify_clone_flutter/data/models/auth/user.dart';
 import 'package:spotify_clone_flutter/domain/entities/auth/user_entity.dart';
 
-sealed class AuthFirebaseService {
+sealed class AuthFirebaseDatasource {
   Future<Either> signUp(CreateUserReq createUserReq);
 
   Future<Either> signIn(SignInUserReq signInUserReq);
@@ -15,7 +15,7 @@ sealed class AuthFirebaseService {
   Future<Either> getUser();
 }
 
-class AuthFirebaseServiceImpl extends AuthFirebaseService {
+class AuthFirebaseDatasourceImpl extends AuthFirebaseDatasource {
   @override
   Future<Either> signUp(CreateUserReq createUserReq) async {
     try {

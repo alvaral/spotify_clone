@@ -10,7 +10,7 @@ import 'package:spotify_clone_flutter/domain/entities/song/song_entity.dart';
 import 'package:spotify_clone_flutter/domain/usecases/song/is_favorite_song_use_case.dart';
 import 'package:spotify_clone_flutter/service_locator.dart';
 
-sealed class SongFirebaseService {
+sealed class SongFirebaseDatasource {
   Future<Either> getNewsSongs();
   Future<Either> getPlayList();
   Future<Either> addOrRemoveFavoriteSong(String songId);
@@ -18,7 +18,7 @@ sealed class SongFirebaseService {
   Future<Either> getUserFavoriteSongs();
 }
 
-class SongFirebaseServiceImpl extends SongFirebaseService {
+class SongFirebaseDatasourceImpl extends SongFirebaseDatasource {
   @override
   Future<Either> getNewsSongs() async {
     List<SongEntity> songs = [];

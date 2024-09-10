@@ -1,8 +1,8 @@
 import 'package:get_it/get_it.dart';
 import 'package:spotify_clone_flutter/data/repository/auth/auth_repository_impl.dart';
 import 'package:spotify_clone_flutter/data/repository/song/song_repository_impl.dart';
-import 'package:spotify_clone_flutter/data/sources/auth/auth_firebase_service.dart';
-import 'package:spotify_clone_flutter/data/sources/songs/song_firebase_service.dart';
+import 'package:spotify_clone_flutter/data/sources/auth/auth_firebase_datasource.dart';
+import 'package:spotify_clone_flutter/data/sources/songs/song_firebase_datasource.dart';
 import 'package:spotify_clone_flutter/domain/repository/auth/auth_repository.dart';
 import 'package:spotify_clone_flutter/domain/repository/song/song_repository.dart';
 import 'package:spotify_clone_flutter/domain/usecases/auth/get_user_user_case.dart';
@@ -18,8 +18,8 @@ final sl = GetIt.instance;
 
 Future<void> initializeDependencies() async {
   // Authentication
-  sl.registerSingleton<AuthFirebaseService>(
-    AuthFirebaseServiceImpl(),
+  sl.registerSingleton<AuthFirebaseDatasource>(
+    AuthFirebaseDatasourceImpl(),
   );
 
   sl.registerSingleton<AuthRepository>(
@@ -39,8 +39,8 @@ Future<void> initializeDependencies() async {
   );
 
   // songs
-  sl.registerSingleton<SongFirebaseService>(
-    SongFirebaseServiceImpl(),
+  sl.registerSingleton<SongFirebaseDatasource>(
+    SongFirebaseDatasourceImpl(),
   );
 
   sl.registerSingleton<SongRepository>(
