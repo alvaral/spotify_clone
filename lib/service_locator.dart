@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get_it/get_it.dart';
 import 'package:spotify_clone_flutter/data/repository/auth/auth_repository_impl.dart';
 import 'package:spotify_clone_flutter/data/repository/song/song_repository_impl.dart';
@@ -19,7 +21,10 @@ final sl = GetIt.instance;
 Future<void> initializeDependencies() async {
   // Authentication
   sl.registerSingleton<AuthFirebaseDatasource>(
-    AuthFirebaseDatasourceImpl(),
+    AuthFirebaseDatasourceImpl(
+      firebaseAuth: FirebaseAuth.instance,
+      firebaseFirestore: FirebaseFirestore.instance,
+    ),
   );
 
   sl.registerSingleton<AuthRepository>(
