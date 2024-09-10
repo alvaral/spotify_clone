@@ -79,16 +79,40 @@ Make sure you have the following installed on your machine:
 
 ## Project Structure
 
-```
-lib
-│───bloc                   # Bloc (Cubit) state management
-│───data                   # Data layer (models, repositories)
-│───domain                 # Domain layer (use cases, entities)
-│───presentation           # UI layer (screens, widgets)
-│───services               # Firebase and other services
-│───main.dart              # Entry point of the application
-assets
-│───images                 # Image assets
+```plaintext
+spotify_clone_flutter/
+│
+├── lib/
+│   ├── common/
+│   │   ├── bloc/           
+│   │   ├── helpers/               
+│   │   └── widgets/ 
+│   ├── core/
+│   │   ├── configs/           
+│   │   ├── routing/               
+│   │   └── usecase/ 
+│   ├── data/
+│   │   ├── datasources/           
+│   │   ├── models/               
+│   │   └── repositories_impl/ 
+│   ├── domain/
+│   │   ├── entities/             
+│   │   ├── repositories/        
+│   │   └── usecases/               
+│   ├── presentation/
+│   │   ├── feature1/
+│   │   │   ├── bloc/
+│   │   │   └── pages/               
+│   │   └── feature2/               
+│   │   
+│   ├── firebase_options.dart
+│   ├── main.dart 
+│   └── service_locator.dart
+│
+├── test/                   # same structure as the lib folder but with the test files
+│
+├── pubspec.yaml
+└── README.md
 ```
 
 ## Technologies Used
@@ -115,4 +139,5 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ---
 
-Feel free to customize this README file according to your project's specific needs. If you have any questions or need further assistance, please contact us at [your-email@example.com]. Happy coding!
+Feel free to customize this README file according to your project's specific needs. If you have any questions or need further assistance, please contact us at [alvaroalonso222@gmail.com]. 
+Happy coding!

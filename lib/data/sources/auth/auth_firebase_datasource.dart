@@ -16,13 +16,21 @@ sealed class AuthFirebaseDatasource {
 }
 
 class AuthFirebaseDatasourceImpl extends AuthFirebaseDatasource {
+  final FirebaseAuth firebaseAuth;
+  final FirebaseFirestore firebaseFirestore;
+
+  AuthFirebaseDatasourceImpl({
+    required this.firebaseAuth,
+    required this.firebaseFirestore,
+  });
+
   @override
   Future<Either> signUp(CreateUserReq createUserReq) async {
     try {
-      var data = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      var data = await firebaseAuth.createUserWithEmailAndPassword(
           email: createUserReq.email, password: createUserReq.password);
 
-      FirebaseFirestore.instance.collection('Users').doc(data.user?.uid).set({
+      firebaseFirestore.collection('Users').doc(data.user?.uid).set({
         'name': createUserReq.fullName,
         'email': data.user!.email,
       });
@@ -44,7 +52,7 @@ class AuthFirebaseDatasourceImpl extends AuthFirebaseDatasource {
   @override
   Future<Either> signIn(SignInUserReq signInUserReq) async {
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      await firebaseAuth.signInWithEmailAndPassword(
           email: signInUserReq.email, password: signInUserReq.password);
 
       return const Right('SignIn was Succesfull');
@@ -64,9 +72,6 @@ class AuthFirebaseDatasourceImpl extends AuthFirebaseDatasource {
   @override
   Future<Either> getUser() async {
     try {
-      FirebaseAuth firebaseAuth = FirebaseAuth.instance;
-      FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
-
       var user = await firebaseFirestore
           .collection('Users')
           .doc(firebaseAuth.currentUser?.uid)
